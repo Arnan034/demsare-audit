@@ -1,37 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aplikasi Desktop Audit Barang
 
-## Getting Started
+Aplikasi desktop berbasis **Tauri** yang digunakan untuk melakukan auditisasi barang. Aplikasi ini menggunakan **Next.js** untuk frontend dan **SQLite** untuk penyimpanan data lokal. Dengan aplikasi ini, pengguna dapat mengelola data audit barang dengan mudah melalui antarmuka grafis yang sederhana namun efektif.
 
-First, run the development server:
+## Fitur
+
+- **Input Data Barang**: Menambah data barang yang diaudit.
+- **Daftar Barang**: Melihat dan mengelola daftar barang yang telah diaudit.
+- **Penyimpanan Lokal**: Menggunakan SQLite untuk menyimpan data secara lokal pada perangkat.
+
+## Teknologi yang Digunakan
+
+- **Tauri**: Untuk membuat aplikasi desktop menggunakan teknologi web.
+- **Next.js**: Framework React untuk membangun antarmuka pengguna (UI).
+- **SQLite**: Database lokal untuk menyimpan data audit barang.
+- **Rust**: Digunakan pada backend untuk memanipulasi data dan menjalankan aplikasi Tauri.
+
+## Persyaratan
+
+Sebelum memulai, pastikan bahwa Anda memiliki alat berikut:
+
+- **Node.js** (Versi 16.x atau lebih baru)
+- **Rust** (Versi 1.58 atau lebih baru)
+- **SQLite** (SQLite database sudah disertakan di dalam aplikasi)
+
+## Instalasi
+
+### 1. Clone Repositori
+Clone repositori ini ke mesin lokal Anda:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/username/audit-app.git
+cd demsare-audit
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instal Dependensi Frontend (Next.js)
+Masuk ke direktori frontend dan instal dependensinya:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd frontend
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Instal Dependensi Backend (Tauri)
+Instal dependensi untuk backend Tauri:
 
-## Learn More
+```bash
+cd src-tauri
+cargo install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Menjalankan Aplikasi
+Setelah semua dependensi terinstal, Anda dapat menjalankan aplikasi dengan perintah berikut:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run tauri dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Cara Kerja Aplikasi
+Aplikasi ini mengelola data audit barang dengan frontend menggunakan Next.js dan backend menggunakan Rust/Tauri. Proses yang terjadi adalah:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# demsare-audit" 
+1. Frontend: Menggunakan React dan Next.js untuk memberikan UI yang interaktif. Pengguna dapat memasukkan data barang dan melihat daftar barang yang telah diaudit.
+2. Backend: Menggunakan Tauri dengan Rust untuk mengelola logika backend dan komunikasi dengan SQLite untuk menyimpan data barang secara lokal.
+3. SQLite: Semua data barang disimpan di database SQLite lokal yang terintegrasi dengan aplikasi.
